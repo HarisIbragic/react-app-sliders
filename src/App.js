@@ -70,9 +70,15 @@
 
 // export default App;
 
-import React from 'react';
+import React, { useState } from 'react';
 import data from './data';
+import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
+import { FaQuoteRight } from 'react-icons/fa';
+function App() {
+  const [people, setPeople] = useState(data);
+  const [index, setIndex] = useState(0);
 
-function App() {}
+  return <section className='sectin'></section>;
+}
 
 export default App;
