@@ -78,7 +78,35 @@ function App() {
   const [people, setPeople] = useState(data);
   const [index, setIndex] = useState(0);
 
-  return <section className='sectin'></section>;
+  return (
+    <section className='section'>
+      <div className='title'>
+        <h2>
+          <span>/</span>Reviews
+        </h2>
+      </div>
+      <div className='section-center'>
+        {people.map((person, personIndex) => {
+          const { id, image, name, title, quote } = person;
+          return (
+            <article key={id}>
+              <img src={image} alt={name} className='person-img' />
+              <h4>{name}</h4>
+              <p className='title'>{title}</p>
+              <p className='text'>{quote}</p>
+              <FaQuoteRight />
+            </article>
+          );
+        })}
+        <button className='prev' onClick={prevSlide}>
+          <FiChevronLeft />
+        </button>
+        <button className='next' onClick={nextSlide}>
+          <FiChevronRight />
+        </button>
+      </div>
+    </section>
+  );
 }
 
 export default App;
