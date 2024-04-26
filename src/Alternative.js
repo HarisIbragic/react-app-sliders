@@ -52,16 +52,16 @@
 //         {people.map((person, personIndex) => {
 //           const { id, image, name, title, quote } = person;
 
-//           let position = 'nextSlide';
-//           if (personIndex === index) {
-//             position = 'activeSlide';
-//           }
-//           if (
-//             personIndex === index - 1 ||
-//             (index === 0 && personIndex === people.length - 1)
-//           ) {
-//             position = 'lastSlide';
-//           }
+// let position = 'nextSlide';
+// if (personIndex === index) {
+//   position = 'activeSlide';
+// }
+// if (
+//   personIndex === index - 1 ||
+//   (index === 0 && personIndex === people.length - 1)
+// ) {
+//   position = 'lastSlide';
+// }
 
 //           return (
 //             <article className={position} key={id}>
