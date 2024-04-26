@@ -78,6 +78,26 @@ function App() {
   const [people, setPeople] = useState(data);
   const [index, setIndex] = useState(0);
 
+  const prevSlide = () => {
+    setIndex(curPerson => {
+      let changePerson = curPerson - 1;
+      if (changePerson < 0) {
+        changePerson = people.length - 1;
+      }
+      return changePerson;
+    });
+  };
+
+  const nextSlide = () => {
+    setIndex(curPerson => {
+      let changePerson = curPerson + 1;
+      if (changePerson > people.length - 1) {
+        changePerson = 0;
+      }
+      return changePerson;
+    });
+  };
+
   return (
     <section className='section'>
       <div className='title'>
@@ -94,7 +114,7 @@ function App() {
               <h4>{name}</h4>
               <p className='title'>{title}</p>
               <p className='text'>{quote}</p>
-              <FaQuoteRight />
+              <FaQuoteRight className='icon' />
             </article>
           );
         })}
