@@ -70,7 +70,7 @@
 
 // export default App;
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import data from './data';
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import { FaQuoteRight } from 'react-icons/fa';
@@ -87,6 +87,21 @@ function App() {
       return changePerson;
     });
   };
+
+  useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(curPerson => {
+        let changePerson = curPerson - 1;
+        if (changePerson < 0) {
+          changePerson = people.length - 1;
+        }
+        return changePerson;
+      }, 5000);
+    });
+    return () => {
+      clearInterval(slider);
+    };
+  }, [index]);
 
   const nextSlide = () => {
     setIndex(curPerson => {
